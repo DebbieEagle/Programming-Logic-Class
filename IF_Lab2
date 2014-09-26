@@ -25,8 +25,7 @@ namespace Eagle_Debbie_IF_Lab2
         Console.WriteLine("Your name is Joe");
         else if ((eyeColor == "blue") && (gender == "F"))  
         Console.WriteLine("Your name is Sally");
-        else
-      
+        
         if ((eyeColor == "brown") && (gender == "M"))
         Console.WriteLine("Your name is Dave");
         else if ((eyeColor == "brown") && (gender == "F"))

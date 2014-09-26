@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Eagle_Debbie_IF_Lab2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        string gender;
+        Console.WriteLine("What is your gender M/F?");
+        
+        gender = (Console.ReadLine());
+       
+        string eyeColor;
+        Console.WriteLine("What is your eyecolor?");
+        
+        eyeColor = (Console.ReadLine());
+
+
+        if ((eyeColor == "blue") && (gender == "M"))
+        Console.WriteLine("Your name is Joe");
+        else if ((eyeColor == "blue") && (gender == "F"))  
+        Console.WriteLine("Your name is Sally");
+        else
+      
+
+        if ((eyeColor == "brown") && (gender == "M"))
+        Console.WriteLine("Your name is Dave");
+        else if ((eyeColor == "brown") && (gender == "F"))
+        Console.WriteLine("Your name is Jane");
+
+       if ((eyeColor == "green") && (gender == "M"))
+       Console.WriteLine("Your name is John");
+       else if ((eyeColor == "geen") && (gender == "F"))
+       Console.WriteLine("Your name is Phoebe");
+
+
+        else
+        Console.WriteLine("Not Found");
+    
+      Console.ReadLine();
+
+
+
+
+        }
+    }
+}

@@ -1,0 +1,170 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EagleDebbie_Lab3_10_4_14
+{
+    class Person
+    {
+        public int age;
+        public string FirstName;
+        public string LastName;
+        public Person Spouse;
+
+        public static double AverageAge;
+        public static Person Youngest;
+        public static Person Oldest;
+
+        public string FristName { get; set; }
+        
+        
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EagleDebbie_Lab3_10_4_14
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p1 = new Person();
+
+            Console.WriteLine("Enter first person's first name: ");
+            p1.FirstName = Console.ReadLine();
+
+            Console.WriteLine("Enter first person's last name: ");
+            p1.LastName = Console.ReadLine();
+
+            Console.WriteLine("Enter first person's age: ");
+            p1.age = Convert.ToInt32(Console.ReadLine());
+
+            string married;
+            Console.WriteLine("Are you married?");
+            married = Console.ReadLine();
+
+            bool isMarried = true;
+            if (married == "yes")
+            {
+                Person Spouse = new Person();
+
+                Console.WriteLine("Enter spouse's first name: ");
+                p1.Spouse.FristName = Console.ReadLine();
+
+                Console.WriteLine("Enter spouse's age: ");
+                p1.Spouse.age = Convert.ToInt32(Console.ReadLine());
+
+                p1.Spouse.LastName = p1.LastName;
+                p1.Spouse.Spouse = p1.FistName;
+
+            }
+
+
+            Person p2 = new Person();
+
+            Console.WriteLine("Enter second person's first name: ");
+            p2.FirstName = Console.ReadLine();
+
+            Console.WriteLine("Enter second person's last name: ");
+            p2.LastName = Console.ReadLine();
+
+            Console.WriteLine("Enter second person's age: ");
+            p2.age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Are you married?");
+            married = Console.ReadLine();
+
+
+            if (married == "yes")
+            {
+                Person Spouse = new Person();
+
+                Console.WriteLine("Enter spouse's first name: ");
+                p2.Spouse.FristName = Console.ReadLine();
+
+                Console.WriteLine("Enter spouse's age: ");
+                p2.Spouse.age = Convert.ToInt32(Console.ReadLine());
+               
+               p2.Spouse.LastName = p2.LastName;
+               p2.Spouse.Spouse = p2.FirstName;
+
+            }
+           
+
+            Person p3 = new Person();
+
+            Console.WriteLine("Enter third person's first name: ");
+            p3.FirstName = Console.ReadLine();
+
+            Console.WriteLine("Enter third person's last name: ");
+            p3.LastName = Console.ReadLine();
+
+            Console.WriteLine("Enter third person's age: ");
+            p3.age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Are you married?");
+            married = Console.ReadLine();
+
+            if (married == "yes")
+            {
+                Person Spouse = new Person();
+
+                Console.WriteLine("Enter spouse's first name: ");
+                Spouse.FristName = Console.ReadLine();
+
+                Console.WriteLine("Enter spouse's age: ");
+                Spouse.age = Convert.ToInt32(Console.ReadLine());
+
+                p3.Spouse.LastName = p3.LastName;
+                p3.Spouse.Spouse = p3.FirstName;
+            }
+
+
+
+
+
+
+
+
+
+            Console.WriteLine("\nPerson 1 First Name: {0}", p1.FirstName);
+            Console.WriteLine("Person 1 Last Name: {0}", p1.LastName);
+            Console.WriteLine("Person 1 Age: {0}", p1.age);
+            Console.WriteLine("Person 1 Spouse First Name: {0}: ", p1.Spouse.FirstName);
+            Console.WriteLine("Person 1 Spouse Age: {0}: ", p1.Spouse.age);
+            
+
+
+            Console.WriteLine("\nPerson 2 First Name: {0}", p2.FirstName);
+            Console.WriteLine("Person 2 Last Name: {0}", p2.LastName);
+            Console.WriteLine("Person 2 Age: {0}", p2.age);
+            
+
+
+            Console.WriteLine("\nPerson 3 First Name: {0}", p3.FirstName);
+            Console.WriteLine("Person 3 Last Name: {0}", p3.LastName);
+            Console.WriteLine("Person 3 Age: {0}", p3.age);
+
+
+            double AverageAge = (p1.age + p2.age + p3.age) / 3;
+            Console.WriteLine("\nAverage Age =" + " " + AverageAge);
+
+          
+
+
+
+
+
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}

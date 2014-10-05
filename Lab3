@@ -51,7 +51,8 @@ namespace EagleDebbie_Lab3_10_4_14
             bool isMarried = true;
             if (married == "yes")
             {
-                Person Spouse = new Person();
+                
+                p1.Spouse = new Person(); 
 
                 Console.WriteLine("Enter spouse's first name: ");
                 p1.Spouse.FristName = Console.ReadLine();
@@ -82,7 +83,7 @@ namespace EagleDebbie_Lab3_10_4_14
 
             if (married == "yes")
             {
-                Person Spouse = new Person();
+                p2.Spouse = new Person();
 
                 Console.WriteLine("Enter spouse's first name: ");
                 p2.Spouse.FristName = Console.ReadLine();
@@ -112,13 +113,13 @@ namespace EagleDebbie_Lab3_10_4_14
 
             if (married == "yes")
             {
-                Person Spouse = new Person();
+                 p3.Spouse = new Person();
 
                 Console.WriteLine("Enter spouse's first name: ");
-                Spouse.FristName = Console.ReadLine();
+                p3.Spouse.FristName = Console.ReadLine();
 
                 Console.WriteLine("Enter spouse's age: ");
-                Spouse.age = Convert.ToInt32(Console.ReadLine());
+                p3.Spouse.age = Convert.ToInt32(Console.ReadLine());
 
                 p3.Spouse.LastName = p3.LastName;
                 p3.Spouse.Spouse = p3.FirstName;
@@ -143,25 +144,17 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("\nPerson 2 First Name: {0}", p2.FirstName);
             Console.WriteLine("Person 2 Last Name: {0}", p2.LastName);
             Console.WriteLine("Person 2 Age: {0}", p2.age);
-            
+            Console.WriteLine("Person 2 Spouse First Name: {0}: ", p2.Spouse.FirstName);
+            Console.WriteLine("Person 2 Spouse Age: {0}: ", p2.Spouse.FirstName);
 
-
+           
             Console.WriteLine("\nPerson 3 First Name: {0}", p3.FirstName);
             Console.WriteLine("Person 3 Last Name: {0}", p3.LastName);
             Console.WriteLine("Person 3 Age: {0}", p3.age);
 
 
-            double AverageAge = (p1.age + p2.age + p3.age) / 3;
+            double AverageAge = (p1.age + p2.age + p3.age + p1.Spouse.age + p2.Spouse.age) / 5;
             Console.WriteLine("\nAverage Age =" + " " + AverageAge);
-
-          
-
-
-
-
-
-
-
 
 
             Console.ReadKey();

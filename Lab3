@@ -145,7 +145,7 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("Person 2 Last Name: {0}", p2.LastName);
             Console.WriteLine("Person 2 Age: {0}", p2.age);
             Console.WriteLine("Person 2 Spouse First Name: {0}: ", p2.Spouse.FirstName);
-            Console.WriteLine("Person 2 Spouse Age: {0}: ", p2.Spouse.FirstName);
+            Console.WriteLine("Person 2 Spouse Age: {0}: ", p2.Spouse.age);
 
            
             Console.WriteLine("\nPerson 3 First Name: {0}", p3.FirstName);

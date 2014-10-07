@@ -156,37 +156,40 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("Person 3 Age: {0}", p3.age);
     
 
-            double AverageAge = (p1.age + p2.age + p3.age + p1.Spouse.age + p2.Spouse.age) / 5;
-            Console.WriteLine("\nAverage Age =" + " " + AverageAge);
+            Person.AverageAge = (p1.age + p2.age + p3.age + p1.Spouse.age + p2.Spouse.age) / 5;
+            Console.WriteLine("\nAverage Age:" + " " + Person.AverageAge);
 
-
-            Person Youngest = p1;
-            if (p1.age > p2.age)
-                Youngest = p2;
-            if (p2.age > p3.age)
-                Youngest = p3;
-            if (p3.age > p1.Spouse.age)
-                Youngest = p1.Spouse;
-            if (p1.Spouse.age > p2.Spouse.age)
-                Youngest = p2.Spouse;
-
-            Console.WriteLine("\nYoungest:" + Youngest);
             
-            Person Oldest = p1;
-            if (p1.age < p2.age)
-                Oldest = p2;
-            if (p2.age < p3.age)
-                Oldest = p3;
-            if (p3.age < p1.Spouse.age)
-                Oldest = p1.Spouse;
-            if (p1.Spouse.age < p2.Spouse.age)
-                Oldest = p2.Spouse;
+            Person.Youngest = p1;
+            if (p1.age > p2.age)
+            Person.Youngest = p2;
+            else if (p2.age > p3.age)      
+            Person.Youngest = p3;
+            else if (p3.age > p1.Spouse.age)
+            Person.Youngest = p1.Spouse;
+            else if (p1.Spouse.age > p2.Spouse.age)
+            Person.Youngest = p2.Spouse;
 
-            Console.WriteLine("\nOldest:" + Oldest);
+            Console.WriteLine("\nYoungest: {0}", Person.Youngest);
+
+           Person.Oldest = p1;
+           if (p1.age < p2.age)
+           Person.Oldest = p2;
+           else if (p2.age < p3.age)
+           Person.Oldest = p3;
+           else if (p3.age < p1.Spouse.age)
+           Person.Oldest = p1.Spouse;
+           else if (p1.Spouse.age < p2.Spouse.age)
+           Person.Oldest = p2.Spouse;
+          
+    
+
+            Console.WriteLine("\nOldest: {0}", Person.Oldest);
 
 
             Console.ReadKey();
         }
     }
 }
+
 

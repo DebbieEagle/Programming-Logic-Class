@@ -12,16 +12,26 @@ namespace EagleDebbie_Lab3_10_4_14
         public string FirstName;
         public string LastName;
 
-        public static double AverageAge;
+        
         public static Person Youngest;
         public static Person Oldest;
 
         public Person Spouse;
 
+        public static int SumOfAllAges;
+        public static int TotalNumberOfPeople;
+
+        public static double ComputeAverageAge()
+        {
+            double sumOfAllAges = (double) SumOfAllAges;
+            double totalNumberOfPeople = (double) TotalNumberOfPeople;
+            return sumOfAllAges / totalNumberOfPeople;
+        }
 
 
     }
 }
+
 
 using System;
 using System.Collections.Generic;
@@ -37,6 +47,7 @@ namespace EagleDebbie_Lab3_10_4_14
         static void Main(string[] args)
         {
             Person p1 = new Person();
+            Person.TotalNumberOfPeople++;
 
             Console.WriteLine("Enter first person's first name: ");
             p1.FirstName = Console.ReadLine();
@@ -47,6 +58,11 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("Enter first person's age: ");
             p1.age = Convert.ToInt32(Console.ReadLine());
 
+            Person.SumOfAllAges += p1.age;
+           
+            Person.Youngest = p1;
+            Person.Oldest = p1;
+
             string married;
             Console.WriteLine("Are you married?");
             married = Console.ReadLine();
@@ -55,7 +71,8 @@ namespace EagleDebbie_Lab3_10_4_14
             if (married == "yes")
             {
                 
-                p1.Spouse = new Person(); 
+                p1.Spouse = new Person();
+                Person.TotalNumberOfPeople++;
 
                 Console.WriteLine("Enter spouse's first name: ");
                 p1.Spouse.FirstName = Console.ReadLine();
@@ -66,10 +83,21 @@ namespace EagleDebbie_Lab3_10_4_14
                 p1.Spouse.LastName = p1.LastName;
                 p1.Spouse.Spouse = p1;
 
+                Person.SumOfAllAges += p1.Spouse.age;
             }
 
+            if (p1.Spouse.age < p1.age)
+            {
+                Person.Youngest = p1.Spouse;
+            }
+
+            if (p1.Spouse.age > p1.age)
+            {
+                Person.Oldest = p1.Spouse;
+            }
 
             Person p2 = new Person();
+            Person.TotalNumberOfPeople++;
 
             Console.WriteLine("Enter second person's first name: ");
             p2.FirstName = Console.ReadLine();
@@ -83,10 +111,24 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("Are you married?");
             married = Console.ReadLine();
 
+            Person.SumOfAllAges += p2.age;
+
+            if (p2.age < p1.Spouse.age)
+            {
+                Person.Youngest = p2.Spouse;
+            }
+
+            if (p2.age > p1.Spouse.age)
+            {
+                Person.Oldest = p2;
+            }
+
+
 
             if (married == "yes")
             {
                 p2.Spouse = new Person();
+                Person.TotalNumberOfPeople++;
 
                 Console.WriteLine("Enter spouse's first name: ");
                 p2.Spouse.FirstName = Console.ReadLine();
@@ -97,10 +139,23 @@ namespace EagleDebbie_Lab3_10_4_14
                p2.Spouse.LastName = p2.LastName;
                p2.Spouse.Spouse = p2;
 
+              Person.SumOfAllAges += p2.Spouse.age;
+
+            }
+
+            if (p2.Spouse.age < p2.age)
+            {
+                Person.Youngest = p2.Spouse;
+            }
+
+            if (p2.Spouse.age > p2.age)
+            {
+                Person.Oldest = p2.Spouse;
             }
            
 
             Person p3 = new Person();
+            Person.TotalNumberOfPeople++;
 
             Console.WriteLine("Enter third person's first name: ");
             p3.FirstName = Console.ReadLine();
@@ -111,12 +166,25 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("Enter third person's age: ");
             p3.age = Convert.ToInt32(Console.ReadLine());
 
+            Person.SumOfAllAges += p3.age;
+
             Console.WriteLine("Are you married?");
             married = Console.ReadLine();
+
+            if (p3.age < p2.Spouse.age)
+            {
+                Person.Youngest = p3;
+            }
+
+            if (p3.age > p2.Spouse.age)
+            {
+                Person.Oldest = p3;
+            }
 
             if (married == "yes")
             {
                  p3.Spouse = new Person();
+                 Person.TotalNumberOfPeople++;
 
                 Console.WriteLine("Enter spouse's first name: ");
                 p3.Spouse.FirstName = Console.ReadLine();
@@ -136,11 +204,12 @@ namespace EagleDebbie_Lab3_10_4_14
 
 
 
+
             Console.WriteLine("\nPerson 1 First Name: {0}", p1.FirstName);
             Console.WriteLine("Person 1 Last Name: {0}", p1.LastName);
             Console.WriteLine("Person 1 Age: {0}", p1.age);
             Console.WriteLine("Person 1 Spouse First Name: {0} ", p1.Spouse.FirstName);
-            Console.WriteLine("Person 1 Spouse Age: {0}: ", p1.Spouse.age);
+            Console.WriteLine("Person 1 Spouse Age: {0} ", p1.Spouse.age);
             
 
 
@@ -154,42 +223,16 @@ namespace EagleDebbie_Lab3_10_4_14
             Console.WriteLine("\nPerson 3 First Name: {0}", p3.FirstName);
             Console.WriteLine("Person 3 Last Name: {0}", p3.LastName);
             Console.WriteLine("Person 3 Age: {0}", p3.age);
-    
 
-            Person.AverageAge = (p1.age + p2.age + p3.age + p1.Spouse.age + p2.Spouse.age) / 5;
-            Console.WriteLine("\nAverage Age:" + " " + Person.AverageAge);
-
-            
-            Person.Youngest = p1;
-            if (p1.age > p2.age)
-            Person.Youngest = p2;
-            else if (p2.age > p3.age)      
-            Person.Youngest = p3;
-            else if (p3.age > p1.Spouse.age)
-            Person.Youngest = p1.Spouse;
-            else if (p1.Spouse.age > p2.Spouse.age)
-            Person.Youngest = p2.Spouse;
-
-            Console.WriteLine("\nYoungest: {0}", Person.Youngest);
-
-           Person.Oldest = p1;
-           if (p1.age < p2.age)
-           Person.Oldest = p2;
-           else if (p2.age < p3.age)
-           Person.Oldest = p3;
-           else if (p3.age < p1.Spouse.age)
-           Person.Oldest = p1.Spouse;
-           else if (p1.Spouse.age < p2.Spouse.age)
-           Person.Oldest = p2.Spouse;
-          
-    
-
-            Console.WriteLine("\nOldest: {0}", Person.Oldest);
+            Console.WriteLine("\nAverage Age:" + " " + Person.ComputeAverageAge());
+            Console.WriteLine("Youngest Person:" + " " + Person.Youngest.FirstName);
+            Console.WriteLine("Oldest Person:" + " " + Person.Oldest.FirstName);
+            Console.ReadLine();
 
 
-            Console.ReadKey();
+
+
         }
     }
 }
-
 
